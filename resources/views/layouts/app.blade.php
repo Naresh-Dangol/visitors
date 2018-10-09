@@ -142,7 +142,7 @@
 <script src="{!!asset('js/icheck.min.js')!!}"></script>
 
 <!-- AdminLTE App -->
-<script src="{!!asset('js/app.min.js')!!}"></script>
+<script src="{!!asset('js/app.js')!!}"></script>
 <script type="text/javascript" src="{{asset('DataTables/datatables.min.js')}}"></script>
 
 <script src="//js.pusher.com/3.1/pusher.min.js"></script>
