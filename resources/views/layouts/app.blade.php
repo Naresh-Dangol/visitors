@@ -1,13 +1,14 @@
-  <?php $settings= App\Models\GlobalSetting::get();
-    foreach($settings as $setting){
-      //  $lo = $logo[0]['fav_icon'];
-    }
-  ?>
-<!DOCTYPE html>
+<?php $settings = App\Models\GlobalSetting::get();
+foreach ($settings as $setting) {
+    //  $lo = $logo[0]['fav_icon'];
+}
+?>
+        <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
     <title>Control Pannel</title>
+    <meta name="csrf-token" content="{!! csrf_token() !!}"/>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
 
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -21,10 +22,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/iCheck/1.0.2/skins/square/_all.css">
     <link rel="shortcut icon" href="{{asset('image/'.$setting->fav_icon)}}">
 
+
     @include('layouts.datatables_css')
     <style>
         .skin-blue .main-header .navbar {
-                background-color:#DC143C;
+            background-color: #DC143C;
         }
 
         .skin-blue .main-header .logo {
@@ -40,7 +42,7 @@
 <div class="wrapper">
     <!-- Main Header -->
     <header class="main-header">
-      
+
 
         <!-- Logo -->
         <a href="#" class="logo">
@@ -55,26 +57,17 @@
             </a>
 
 
-            
-            <center>  <span class="" style="color: #fff;position: absolute;top: 15px;font-size: 16px;left: 350px">आन्तरिक मामिला तथा कानुन मन्त्रालय कर्णाली प्रदेश l</span></center>
+            <center><span class="" style="color: #fff;position: absolute;top: 15px;font-size: 16px;left: 350px">आन्तरिक मामिला तथा कानुन मन्त्रालय कर्णाली प्रदेश l</span>
+            </center>
+
 
             <!-- Navbar Right Menu -->
-            <div class="navbar-custom-menu">
-              
+            <div class="navbar-custom-menu" id="app">
                 <ul class="nav navbar-nav">
-                    @if(Auth::user()->user_role !='super_admin')
-                    <li class="dropdown notifications-menu">
-                        <a href="data-count" class="dropdown-toggle" data-toggle="dropdown">
-                          <i data-count="0" class="fa fa-bell-o"></i>
-                          <span class="label label-warning">10</span>
-                        </a>
-                        <ul class="dropdown-menu">
-                          <li class="header">You have 10 notifications</li>
-                      </ul>
-                    <li>
-                        @endif
-                    
-                    <!-- User Account Menu -->
+                @if(Auth::user()->user_role !='super_admin')
+                        <notification></notification>
+                @endif
+                <!-- User Account Menu -->
                     <li class="dropdown user user-menu">
 
                         <!-- Menu Toggle Button -->
@@ -91,8 +84,8 @@
                                 <img src="{{asset('image/'.$setting->logo)}}"
                                      class="img-circle" alt="User Image"/>
                                 <p>
-                                    {!! Auth::user()->name !!}
-                                    <!-- <small>Member since {!! Auth::user()->created_at->format('M. Y') !!}</small> -->
+                                {!! Auth::user()->name !!}
+                                <!-- <small>Member since {!! Auth::user()->created_at->format('M. Y') !!}</small> -->
                                 </p>
                             </li>
                             <!-- Menu Footer-->
@@ -113,8 +106,6 @@
                             </li>
                         </ul>
                     </li>
-
-
                 </ul>
             </div>
         </nav>
@@ -129,23 +120,20 @@
 
     <!-- Main Footer -->
     <footer class="main-footer" style="max-height: 100px;text-align: center">
-        <strong>Copyright © 2018 <a href="http://radiantnepal.com" target="_blank">Radiant Nepal</a>.</strong> All rights reserved.
+        <strong>Copyright © 2018 <a href="http://radiantnepal.com" target="_blank">Radiant Nepal</a>.</strong> All
+        rights reserved.
     </footer>
 
 </div>
-
-
+<script src="{!! asset('js/app.js') !!}"></script>
 <!-- jQuery 3.1.1 -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/iCheck/1.0.2/icheck.min.js"></script>
-
 <!-- AdminLTE App -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/2.3.11/js/app.min.js"></script>
-<script type="text/javascript" src="{{asset('DataTables/datatables.min.js')}}"></script>
 
-<script src="//js.pusher.com/3.1/pusher.min.js"></script>
 
 @include('layouts.datatables_js')
 

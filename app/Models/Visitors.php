@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use Eloquent as Model;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
@@ -21,6 +21,10 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Visitors extends Model
 {
     use SoftDeletes;
+
+    protected $dispatchEvents=[
+
+    ];
 
     public $table = 'visitors';
     

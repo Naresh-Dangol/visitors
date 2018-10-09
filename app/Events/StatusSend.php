@@ -3,6 +3,7 @@
 namespace App\Events;
 
 use Illuminate\Broadcasting\Channel;
+use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Broadcasting\PrivateChannel;
 use Illuminate\Broadcasting\PresenceChannel;
@@ -10,21 +11,20 @@ use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 
-class StatusSend 
+class StatusSend implements ShouldBroadcast,ShouldQueue
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
-    public $username;
-    public $message;
+    public $user;
+
     /**
      * Create a new event instance.
      *
      * @return void
      */
-    public function __construct($username)
+    public function __construct($user)
     {
-        $this->username = $username;
-        $this->message = "{$username} Sent notification";
+        $this->user = $user;
     }
 
     /**
@@ -34,6 +34,6 @@ class StatusSend
      */
     public function broadcastOn()
     {
-        return new PrivateChannel('status-sent');
+        return new PrivateChannel('message');
     }
 }

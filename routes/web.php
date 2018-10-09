@@ -48,10 +48,9 @@ Route::get('/visitors/getVisitor','VisitorsController@getVisitorReport');
  
  
 
- Route::get('/visitor-notification', function () {
-    event(new App\Events\StatusSend('Someone'));
-    return redirect()->back();
-});
+
+ Route::get('visitor-notification/{visitor_id}','NotificationController@sendNotification')->name('visitor-notification');
+
 
 
 Route::get('/global-setting','GlobalSettingController@global_setting');
