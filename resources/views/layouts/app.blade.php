@@ -12,7 +12,7 @@
 
     <link rel="stylesheet" href="{!!asset('css/bootstrap.min.css')!!}">
     <link rel="stylesheet" href="{!!asset('css/font-awesome.min.css')!!}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css">
+    <link rel="stylesheet" href="{!!asset('css/select2.min.css')!!}">
     <link rel="stylesheet" href="{!!asset('css/AdminLTE.min.css')!!}">
     <link rel="stylesheet" href="{!!asset('css/_all-skins.min.css')!!}">
 
@@ -142,7 +142,7 @@
 <script src="{!!asset('js/icheck.min.js')!!}"></script>
 
 <!-- AdminLTE App -->
-<script src="{!!asset('js/app.js')!!}"></script>
+<script src="{!!asset('js/app.min.js')!!}"></script>
 <script type="text/javascript" src="{{asset('DataTables/datatables.min.js')}}"></script>
 
 <script src="//js.pusher.com/3.1/pusher.min.js"></script>
