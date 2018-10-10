@@ -47,8 +47,8 @@
 
                         <!--  Visited Date Field -->
                         <div class="form-group col-sm-6">
-                            {!! Form::label('visited_date', 'Visit Date:') !!}
-                            {!! Form::date('visited_date',  old('visited_date', 
+                            {!! Form::label('visit_date', 'Visit Date:') !!}
+                            {!! Form::date('visit_date',  old('visit_date', 
                                 Carbon\Carbon::today()->format('Y-m-d')),
                             ['class'=>'form-control date-picker','required']) !!}
 
@@ -56,18 +56,13 @@
 
                         <!-- Visited Time Field -->
                         <div class="form-group col-sm-6">
-                            {!! Form::label('visited_time', 'Visit Time:') !!}
-                            {!! Form::time('visited_time',  old('visited_time', 
+                            {!! Form::label('visit_time', 'Visit Time:') !!}
+                            {!! Form::time('visit_time',  old('visit_time', 
                                 Carbon\Carbon::now()->format('H:i')),
                             ['class'=>'form-control','required']) !!}
                         </div>
 
-                        <!-- Visited Time Field -->
-                        <div class="form-group col-sm-6">
-                            {!! Form::label('visited_duration', 'Visited Duration:') !!}
-                            {!! Form::time('visited_duration', old('visited_duration'), ['class' => 'form-control','required']) !!}
-                        </div>
-
+                       
                         <!-- Visited Time Field -->
                         <div class="form-group col-sm-6">
                             {!! Form::label('purpose', 'Purpose of Visit:') !!}

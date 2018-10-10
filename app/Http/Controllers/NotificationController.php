@@ -20,6 +20,7 @@ class NotificationController extends Controller
     {
 
         $visitor = Visitors::find($visitor_id);
+        dd($visitor);
 
 
         //storre notification in database

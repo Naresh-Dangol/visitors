@@ -11,9 +11,10 @@
             <th>Sent</th>
         @endif
         <th>status</th>
-        @if(Auth::user()->user_role != 'admin')
+         <th>Action</th>
+       <!--  @if(Auth::user()->user_role != 'admin')
             <th>Action</th>
-        @endif
+        @endif -->
     </tr>
     </thead>
     <tbody>
@@ -39,22 +40,24 @@
                                 class="fa fa-plus"></i></a>
                 @endif
             </td>
-            @if(Auth::user()->user_role != 'admin')
+           
                 <td>
 
                     {!! Form::open(['route' => ['visitors.destroy', $visitor->id], 'method' => 'delete']) !!}
                     <div class='btn-group'>
                         <a href="{!! route('visitors.show', [$visitor->id]) !!}" class='btn btn-default btn-xs'><i
                                     class="glyphicon glyphicon-eye-open"></i></a>
+                      @if(Auth::user()->user_role != 'admin')
                         <a href="{!! route('visitors.edit', [$visitor->id]) !!}" class='btn btn-default btn-xs'><i
                                     class="glyphicon glyphicon-edit"></i></a>
                         {!! Form::button('<i class="glyphicon glyphicon-trash"></i>', ['type' => 'submit', 'class' => 'btn btn-danger btn-xs', 'onclick' => "return confirm('Are you sure?')"]) !!}
                         <a href="{!! route('visitors.add_purpose', [$visitor->id]) !!}" class='btn btn-default btn-xs'
                            title="Add Status"><i class="glyphicon glyphicon-plus"></i></a>
+                           @endif
                     </div>
                     {!! Form::close() !!}
                 </td>
-            @endif
+            
         </tr>
 
         <!-- Modal -->

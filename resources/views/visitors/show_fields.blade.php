@@ -61,7 +61,7 @@
 </div>
 
 
-
+  @if(Auth::user()->user_role != 'admin')
     <!-- visiting Date Field -->
     @if($visDetails->status == 'yes')
         <div class="form-group">
@@ -87,7 +87,8 @@
             {!! Form::label('unsatisfied_reason', 'Unsatisfied Reason:') !!}
             <p>{!! $visDetails->unsatisfied_reason !!}</p>
         </div>    
-    @endif            
+    @endif    
+    @endif        
 
 
 

@@ -63,5 +63,8 @@ Route::post('/global_setting','GlobalSettingController@updateSettings')->name('u
 Route::resource('visitorRecords', 'VisitorRecordController');
 Route::resource('records', 'RecordController');
 
+ Route::get('/change_profile','AdminController@change_profile')->name('admin.change_profile');
+ Route::post('/change_profile','AdminController@update_profile')->name('admin.update_profile');
+
 
 
